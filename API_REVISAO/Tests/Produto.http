@@ -1,0 +1,14 @@
+### Testar a raiz da aplicação
+GET http://localhost:5082/
+
+### Listar produtos
+GET http://localhost:5082/api/produto/listar
+
+### Cadastrar um produto
+POST http://localhost:5082/api/produto/cadastrar
+Content-Type: application/json
+
+{
+    "Nome" : "Teste do dia 17",
+    "Quantidade" : 150
+}
