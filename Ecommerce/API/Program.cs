@@ -1,4 +1,5 @@
 using API.Data;
+using API.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,8 @@ var connectionString = builder.
 builder.Services.AddDbContext<AppDataContext>
     (options => options.UseMySql(connectionString, 
     ServerVersion.AutoDetect(connectionString)));
+builder.Services.
+    AddScoped<IProdutoRepository, ProdutoRepository>();
 
 var app = builder.Build();
 
