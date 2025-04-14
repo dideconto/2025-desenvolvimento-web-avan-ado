@@ -19,6 +19,8 @@ builder.Services.AddDbContext<AppDataContext>
     ServerVersion.AutoDetect(connectionString)));
 builder.Services.
     AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.
+    AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 var app = builder.Build();
 

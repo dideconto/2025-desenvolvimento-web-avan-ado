@@ -7,3 +7,6 @@ Content-Type: application/json
 {
     "nome" : "Teste"
 }
+
+### Listar produtos
+GET {{url_base}}/listar
