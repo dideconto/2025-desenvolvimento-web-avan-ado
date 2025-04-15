@@ -1,5 +1,6 @@
 using API.Data;
 using API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -15,6 +16,7 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpPost("cadastrar")]
+    [Authorize]
     public IActionResult Cadastrar([FromBody] Produto produto)
     {
         _produtoRepository.Cadastrar(produto);
@@ -22,6 +24,7 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpGet("listar")]
+    [Authorize]
     public IActionResult Listar()
     {        
         return Ok(_produtoRepository.Listar());

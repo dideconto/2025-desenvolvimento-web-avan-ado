@@ -13,7 +13,8 @@ public class UsuarioRepository : IUsuarioRepository
 
     public Usuario? BuscarUsuarioPorEmailSenha(string email, string senha)
     {
-        Usuario? usuarioExistente = _context.Usuarios.FirstOrDefault
+        Usuario? usuarioExistente = 
+            _context.Usuarios.FirstOrDefault
             (x => x.Email == email && x.Senha == senha);
         return usuarioExistente;
     }

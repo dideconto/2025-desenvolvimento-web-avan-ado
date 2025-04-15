@@ -5,8 +5,8 @@ POST {{url_base}}/cadastrar
 Content-Type: application/json
 
 {
-    "email" : "Teste1",
-    "senha" : "1234"
+    "email" : "Teste",
+    "senha" : "123"
 }
 
 ### Login
@@ -14,8 +14,8 @@ POST {{url_base}}/login
 Content-Type: application/json
 
 {
-    "email" : "Teste2",
-    "senha" : "1234"
+    "email" : "Teste",
+    "senha" : "123"
 }
 
 ### Listar usuários
