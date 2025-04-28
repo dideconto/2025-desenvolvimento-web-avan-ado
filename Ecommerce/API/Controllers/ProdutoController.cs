@@ -16,7 +16,7 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpPost("cadastrar")]
-    [Authorize]
+    [Authorize(Roles = "administrador")]
     public IActionResult Cadastrar([FromBody] Produto produto)
     {
         _produtoRepository.Cadastrar(produto);
