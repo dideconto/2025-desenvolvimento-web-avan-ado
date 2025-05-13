@@ -19,6 +19,8 @@ public class ProdutoController : ControllerBase
     [Authorize(Roles = "administrador")]
     public IActionResult Cadastrar([FromBody] Produto produto)
     {
+        var email = User.Identity?.Name;
+        Console.WriteLine(email);
         _produtoRepository.Cadastrar(produto);
         return Created("", produto);
     }

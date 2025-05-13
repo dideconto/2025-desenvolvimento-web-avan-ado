@@ -1,0 +1,23 @@
+@url_base = http://localhost:5288/api/usuario
+
+### Cadastrar usuário
+POST {{url_base}}/cadastrar
+Content-Type: application/json
+
+{
+    "email" : "usr",
+    "senha" : "123"
+}
+
+### Login
+POST {{url_base}}/login
+Content-Type: application/json
+
+{
+    "email" : "usr",
+    "senha" : "123"
+}
+
+### Listar usuários
+GET {{url_base}}/listar
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtIiwiZXhwIjoxNzQ3MDk2NzExfQ.naNz8o8kK8J8uzwkAmsjNyChESzrqdC2HI_xJQ3Dd7A
