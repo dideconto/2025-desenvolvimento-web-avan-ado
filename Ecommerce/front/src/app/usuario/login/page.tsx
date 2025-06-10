@@ -1,5 +1,6 @@
 "use client";
 
+import { Box, Button, Container, Paper, TextField, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -19,9 +20,9 @@ function Login() {
       body: JSON.stringify({ email, senha }),
     });
 
-    if(!resposta.ok){
-        alert("Login ou senha incorretos!");
-        return;
+    if (!resposta.ok) {
+      alert("Login ou senha incorretos!");
+      return;
     }
 
     const token = await resposta.text();
@@ -29,34 +30,69 @@ function Login() {
     router.push("/produto/listar");
   }
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={efetuarLogin}>
-        <div id="email">
-          <label htmlFor="email">E-mail:</label>
-          <input
+    <Container maxWidth="sm">
+      <Paper elevation={3} sx={{ padding: 4, mt: 8 }}>
+        <Typography variant="h5" component="h1" gutterBottom>
+          Login
+        </Typography>
+        <Box component="form" onSubmit={efetuarLogin}>
+          <TextField
+            fullWidth
+            margin="normal"
+            label="E-mail"
             type="text"
-            name="email"
-            id="email"
             required
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div id="senha">
-          <label htmlFor="senha">Senha:</label>
-          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} />
+
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Senha"
             type="text"
-            name="senha"
-            id="senha"
             required
-            onChange={(e) => setSenha(e.target.value)}
-          />
-        </div>
-        <div>
-          <button type="submit">Login</button>
-        </div>
-      </form>
-    </div>
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)} />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{mt : 2}}>
+            Login
+          </Button>
+
+        </Box>
+      </Paper>
+    </Container>
+    // <div>
+    //   <h1>Login</h1>
+    //   <form onSubmit={efetuarLogin}>
+    //     <div id="email">
+    //       <label htmlFor="email">E-mail:</label>
+    //       <input
+    //         type="text"
+    //         name="email"
+    //         id="email"
+    //         required
+    //         onChange={(e) => setEmail(e.target.value)}
+    //       />
+    //     </div>
+    //     <div id="senha">
+    //       <label htmlFor="senha">Senha:</label>
+    //       <input
+    //         type="text"
+    //         name="senha"
+    //         id="senha"
+    //         required
+    //         onChange={(e) => setSenha(e.target.value)}
+    //       />
+    //     </div>
+    //     <div>
+    //       <Button type="submit" variant="contained"> Login </Button>
+    //     </div>
+    //   </form>
+    // </div>
   );
 }
 
